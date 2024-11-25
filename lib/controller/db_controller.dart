@@ -21,6 +21,5 @@ class HistoryController extends ChangeNotifier {
   Future<void> insertData({required HistoryModel model}) async {
     await DbHelper.dbHelper.insertData(model: model);
     getData();
-    notifyListeners();
   }
 }

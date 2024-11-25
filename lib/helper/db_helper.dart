@@ -63,7 +63,7 @@ class DbHelper {
   }
 
   Future<List<HistoryModel>> readData() async {
-    String query = "SELECT*FROM $tableName";
+    String query = "SELECT * FROM $tableName";
     List<Map> data = await database!.rawQuery(query);
     List<HistoryModel> list =
         data.map((e) => HistoryModel.mapToModel(e)).toList();
