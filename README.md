@@ -1,16 +1,6 @@
 # gemini_ai
 
-A new Flutter project.
+<img src = "https://github.com/user-attachments/assets/3960f23a-101c-4513-9bb7-517f43b58ddb" width = "300">
 
-## Getting Started
+<img src = "https://github.com/user-attachments/assets/373b7ec6-a799-44da-9ae2-95d05b94fb9a" width = "300">
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
