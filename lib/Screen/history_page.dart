@@ -18,7 +18,7 @@ class HistoryPage extends StatelessWidget {
         itemCount: historyController.history.length,
         itemBuilder: (context, index) {
           HistoryModel data = historyController.history[index];
-          ListTile(
+          return ListTile(
             title: Text(data.answer.toString()),
           );
         },

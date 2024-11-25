@@ -4,7 +4,7 @@ import 'package:gemini_ai/modals/history_modal.dart';
 
 class HistoryController extends ChangeNotifier {
   HistoryController() {
-    initData();
+    getData();
   }
 
   Future<void> initData() async {
@@ -21,5 +21,6 @@ class HistoryController extends ChangeNotifier {
   Future<void> insertData({required HistoryModel model}) async {
     await DbHelper.dbHelper.insertData(model: model);
     getData();
+    notifyListeners();
   }
 }

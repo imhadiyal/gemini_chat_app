@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:gemini_ai/modals/history_modal.dart';
 import 'package:logger/logger.dart';
 import 'package:sqflite/sqflite.dart';
 
-enum data { id, ans }
+enum data { id, answer }
 
 class DbHelper {
   DbHelper._();
@@ -15,11 +16,11 @@ class DbHelper {
   Future<void> initDb() async {
     String dbPath = await getDatabasesPath();
     database = await openDatabase(
-      '$tableName/$dbPath',
+      '$dbPath/$DB_NAME',
       version: 1,
       onCreate: (db, version) {
         String query =
-            """CREATE TABLE IF NOT EXISTS $tableName (${data.id.name} INTEGER PRIMARY KEY AUTOINCREMENT, ${data.ans.name} TEXT """;
+            """CREATE TABLE IF NOT EXISTS $tableName (${data.id.name} INTEGER PRIMARY KEY AUTOINCREMENT, ${data.answer.name} TEXT); """;
 
         db.execute(query).then((val) => logger.i("table create")).onError(
               (error, stackTrace) => (logger.e('ERROR:$error')),
@@ -54,7 +55,7 @@ class DbHelper {
     await database
         ?.insert(tableName, history)
         .then(
-          (value) => logger.i("user${model.answer}"),
+          (value) => logger.i(model.answer),
         )
         .onError(
           (error, stackTrace) => logger.e("error$error"),
@@ -62,7 +63,7 @@ class DbHelper {
   }
 
   Future<List<HistoryModel>> readData() async {
-    String query = "SELECT * FROM $tableName";
+    String query = "SELECT*FROM $tableName";
     List<Map> data = await database!.rawQuery(query);
     List<HistoryModel> list =
         data.map((e) => HistoryModel.mapToModel(e)).toList();
